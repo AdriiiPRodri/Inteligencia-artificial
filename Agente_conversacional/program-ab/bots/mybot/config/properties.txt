@@ -1,0 +1,9 @@
+url:https://github.com/AdriiiPRodri
+name:VIILA
+email:adrian.j.p.r@gmail.com
+gender:female
+botmaster:AdriiiPRodri	
+organization:ETSIIT-UGR
+version:0.0.1
+
+

@@ -1,0 +1,14 @@
+Mapa 30: 
+Porcentaje de aciertos: 98.5556
+
+Mapa 50: 
+Porcentaje de aciertos: 96
+
+Mapa 100: 
+Porcentaje de aciertos: 91.53
+
+Mapa 100n: 
+Porcentaje de aciertos: 90.31
+
+Mapa 100n2: 
+Porcentaje de aciertos: 78.21

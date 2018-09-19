@@ -1,0 +1,1475 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<!-- Chistes -->
+
+<category>
+<pattern>* chiste</pattern>
+<template>
+<random>
+<li>Un borracho está bebiendo copa tras copa, se le acerca un amigo y le dice:
+- ¿Tu no sabes que el alcohol mata a un millón de americanos cada año?
+Entonces le contesta el borracho:
+- ¿Y qué? Tu ya sabes que yo soy español.</li>
+<li>Saludo de un español a un chino:
+¡Hola! 
+Y el chino le contesta: las doce y tleinta.</li>
+<li>¿Qué hay en el refrigerador de Darth Vader? HE-LADO OSCURO</li>
+</random>
+</template>
+</category>
+
+<!---->
+
+<!-- Saludos y nombres -->
+
+<category>
+<pattern>Hola</pattern>
+<template>Hola, encantada de conocerte.</template>
+</category>
+
+<!---->
+
+<category>
+<pattern>Hola como te llamas</pattern>
+<template>Hola, encantada de conocerte. Mi nombre es <bot name="name"/></template>
+</category>
+
+<category>
+<pattern>Quien * creador</pattern>
+<template>Mi creador es <bot name="botmaster"/></template>
+</category>
+
+<category>
+<pattern>Hola _ te llamas ^</pattern>
+<template><srai>HOLA COMO TE LLAMAS</srai></template>
+</category>
+
+<category>
+<pattern>Hola _ tu nombre ^</pattern>
+<template><srai>HOLA COMO TE LLAMAS</srai></template>
+</category>
+
+<category>
+<pattern>deletrea *</pattern>
+<template><srai>deletrea <star/></srai></template>
+</category>
+
+<category>
+<pattern>quita las barras bajas de *</pattern>
+<template><srai>FINDITEM _ IN <star/></srai></template>
+</category>
+
+
+<!---->
+
+<!---->
+
+<category>
+<pattern>Cual es mi nombre</pattern>
+<template>
+<condition name="nombre">
+    <li value="unknown">Aun no me lo has dicho.</li>
+    <li>Te llamas <get name="nombre"/> me lo dijiste antes.</li>
+</condition>
+</template>
+</category>
+
+<category>
+<pattern>Cual es mi nombre ^</pattern>
+<template><srai>CUAL ES MI NOMBRE</srai>></template>
+</category>
+
+<category>
+<pattern>Como me llamo ^</pattern>
+<template><srai>CUAL ES MI NOMBRE</srai></template>
+</category>
+
+<!---->
+
+<category>
+<pattern>Hola _ nombre es *</pattern>
+<template>Hola, encantada de conocerte <think><set name="nombre"><star index="2"/></set></think></template>
+</category>
+
+<category>
+<pattern>^ me llamo *</pattern>
+<template>
+    <think><set name="nombre"><star index="2"/></set></think>
+    Encantada de conocerte <get name="nombre"/>.
+</template>
+</category>
+
+<category>
+<pattern>Como te llamas ^</pattern>
+<template>Mi nombre es <bot name="name"/>.</template>
+</category>
+
+<!-- Edad -->
+
+<!---->
+
+<category>
+<pattern>Cuantos anios tienes</pattern>
+<template>Tengo <bot name="age"/> anios</template>
+</category>
+
+<category>
+<pattern>^ anios tienes ^</pattern>
+<template><srai>CUANTOS ANIOS TIENES</srai></template>
+</category>
+
+<category>
+<pattern>^ tu edad ^</pattern>
+<template><srai>CUANTOS ANIOS TIENES</srai></template>
+</category>
+
+<!---->
+
+<!-- Colores -->
+
+<!---->
+
+<category>
+<pattern>Es ^ <set>color</set> un color ^</pattern>
+<template>Si, <star/> <star index="2"/> es un color.</template>
+</category>
+
+<category>
+<pattern>Es * un color ^</pattern>
+<template>No, <star/> no es un color.</template>
+</category>
+
+<!---->
+
+<!-- Capitales -->
+
+<!---->
+
+<category>
+<pattern>^ capital de <set>pais</set></pattern>
+<template>La capital de <star index="2"/> es <map name="capital"><star index="2"/></map>.</template>
+</category>
+
+<category>
+<pattern>^ capital de *</pattern>
+<template>No se cual es la capital de <star index="2"/>.</template>
+</category>
+
+<!---->
+
+<!-- Cafe -->
+
+<!---->
+
+<topic name="cafe">
+
+<category>
+<pattern>*</pattern>
+<template>Que raro, yo lo prefiero solo.<think><set name="topic">" "</set></think></template>
+</category>
+
+<category>
+<pattern>^ $leche</pattern>
+<template>A mi solo.<think><set name="topic">" "</set></think></template>
+</category>
+
+<category>
+<pattern>Solo</pattern>
+<template>Anda como a mi!.<think><set name="topic">" "</set></think></template>
+</category>
+
+<category>
+<pattern>Si</pattern>
+<template>Solo o con leche?</template>
+</category>
+
+<category>
+<pattern>Tambien ^</pattern>
+<template>Solo o con leche?</template>
+</category>
+
+<category>
+<pattern>No</pattern>
+<template>Pues a mi si.<think><set name="topic">" "</set></think></template>
+</category>
+
+</topic>
+
+<category>
+<pattern>Te gusta ^ cafe ^</pattern>
+<template>Si me encanta el <set name="topic">cafe</set>, y a ti?</template>
+</category>
+
+<category>
+<pattern>Me gusta ^ cafe ^</pattern>
+<template>A mi tambien me gusta el <set name="topic">cafe</set>, solo o con leche?</template>
+</category>
+
+<!---->
+
+<!-- Contactos -->
+
+<!---->
+
+<topic name="apellido_contacto">
+
+<category>
+<pattern>*</pattern>
+<template>
+<think>
+    <set name="apellido_contacto"><srai>PONERBARRABAJA <star/></srai></set>
+    <set name="nombres"><readkeys>nombre</readkeys></set>
+    <set name="posicion"><srai>FINDITEM <get name="apellido_contacto"/> IN <get name="nombres"/></srai></set>
+</think>
+<condition name="posicion">
+    <li value="0">Apellido agregado correctamente. Dime el nombre del contacto.<think><set name="topic">nombre_contacto</set></think></li>
+    <li>El contacto ya existe, intentelo de nuevo.<think><set name="topic">" "</set></think></li>
+</condition>
+</template>
+</category>
+
+</topic>
+
+<topic name="nombre_contacto">
+
+<category>
+<pattern>*</pattern>
+<template>
+<think><set name="nombre_contacto"><srai>PONERBARRABAJA <star/></srai></set></think>
+Nombre agregado correctamente. Dime la direccion del contacto.<think><set name="topic">direccion_contacto</set></think></template>
+</category>
+
+</topic>
+
+<topic name="direccion_contacto">
+
+<category>
+<pattern>*</pattern>
+<template>
+<think><set name="direccion_contacto"><srai>PONERBARRABAJA <star/></srai></set></think>
+Direccion agregada correctamente. Dime el telefono del contacto.<think><set name="topic">telefono_contacto</set></think></template>
+</category>
+
+</topic>
+
+<topic name="telefono_contacto">
+
+<category>
+<pattern>*</pattern>
+<template>
+<think><set name="telefono_contacto"><srai>PONERBARRABAJA <star/></srai></set></think>
+	<addtomap>
+        <name>nombre</name>
+        <key><get name="apellido_contacto"></get></key>
+        <value><get name="nombre_contacto"></get></value>
+    </addtomap>
+	<addtomap>
+        <name>direccion</name>
+        <key><get name="apellido_contacto"></get></key>
+        <value><get name="direccion_contacto"></get></value>
+    </addtomap>
+    <addtomap>
+        <name>telefono</name>
+        <key><get name="apellido_contacto"></get></key>
+        <value><get name="telefono_contacto"></get></value>
+    </addtomap>
+Telefono agregado correctamente. Contacto creado.<think><set name="topic"> </set></think>
+</template>
+</category>
+
+</topic>
+
+<category>
+<pattern>Quiero aniadir un nuevo contacto ^</pattern>
+<template>Dime el apellido del contacto por favor.<think><set name="topic">apellido_contacto</set></think></template>
+</category>
+
+<category>
+<pattern>* nuevo contacto</pattern>
+<template><srai>QUIERO ANIADIR UN NUEVO CONTACTO</srai></template>
+</category>
+
+<category>
+<pattern>* agregar ^ contacto</pattern>
+<template><srai>QUIERO ANIADIR UN NUEVO CONTACTO</srai></template>
+</category>
+
+<category>
+<pattern>Cuantos contactos tengo almacenados ^</pattern>
+<template>Tienes almacenados <srai>COUNT <readkeys>nombre</readkeys></srai> contactos.</template>
+</category>
+
+<category>
+<pattern>* contactos ^ guardados ^</pattern>
+<template><srai>CUANTOS CONTACTOS TENGO ALMACENADOS</srai></template>
+</category>
+
+<category>
+<pattern>* contactos ^ almacenados ^</pattern>
+<template><srai>CUANTOS CONTACTOS TENGO ALMACENADOS</srai></template>
+</category>
+
+<category>
+<pattern>Lista todos los contactos</pattern>
+<template>Estos son tus contactos guardados:
+<srai>QUITARESPACIOS <srai>PONERCOMAS <readkeys>nombre</readkeys></srai></srai>
+</template>
+</category>
+
+<category>
+<pattern>Muestra ^ contactos ^</pattern>
+<template><srai>LISTA TODOS LOS CONTACTOS</srai></template>
+</category>
+
+<category>
+<pattern>^ lista ^ contactos ^</pattern>
+<template><srai>LISTA TODOS LOS CONTACTOS</srai></template>
+</category>
+
+<topic name="eliminar_contacto">
+
+    <category>
+    <pattern>SI</pattern>
+    <template>
+		<think>
+			<set var="claves"><readkeys>evper</readkeys></set>
+			<set var="contador">0</set>
+			<set var="cuenta"><srai>COUNT <get var="claves"/></srai></set>
+		</think>
+		<condition var="cuenta">
+			<li value="0"></li>
+			<li>
+				<think>
+					<set var="contador">
+						<map name="successor"><get var="contador"/></map>
+					</set>
+					<set var="seleccionado"><srai>SELECTITEM <get var="contador"/> IN <get var="claves"/></srai></set>
+					<set var="cuenta"><srai>COUNT <get var="seleccionado"/></srai></set>
+				</think>
+				<condition var="cuenta">
+					<li value="0"></li>
+					<li>
+						<think>
+							<set var="este"><map name="evper"><get var="seleccionado"/></map></set>
+							<set var="buscando"><srai>FINDITEM <get name="eliminar"/> IN <get var="este"/></srai></set>
+						</think>
+						<condition var="buscando">
+							<li value="0"></li>
+							<li value="$"></li>
+							<li>
+								<think>
+									<set var="borrar"><srai>REMOVEITEM <get var="buscando"/> IN <map name="evper"><get var="seleccionado"/></map></srai></set>
+								</think>
+								<condition var="borrar">
+									<li value="$">
+										<removefrommap>
+											<name>evper</name>
+											<key><get var="seleccionado"/></key>
+										</removefrommap>
+									</li>
+									<li>
+										<modifymap>
+											<name>evper</name>
+											<key><get var="seleccionado"/></key>
+											<value><get var="borrar"/></value>
+										</modifymap>
+									</li>
+								</condition>
+							</li>
+						</condition>
+					</li>
+				</condition>
+				<loop/>
+			</li> 
+		</condition>
+        <removefrommap>
+            <name>nombre</name>
+            <key><get name="eliminar"/></key>
+        </removefrommap>
+		<removefrommap>
+            <name>direccion</name>
+            <key><get name="eliminar"/></key>
+        </removefrommap>
+		<removefrommap>
+            <name>telefono</name>
+            <key><get name="eliminar"/></key>
+        </removefrommap>
+        <set name="topic"> </set>
+        Contacto eliminado correctamente.
+    </template>
+    </category>
+    <category>
+    <pattern>*</pattern>
+    <template>El contacto no ha sido borrado.<set name="topic"> </set></template>
+    </category>
+
+</topic>
+
+<category>
+<pattern>Elimina el contacto *</pattern>
+<template>
+<think>
+    <set name="eliminar"><srai>PONERBARRABAJA <star/></srai></set>
+    <set name="nombres"><readkeys>nombre</readkeys></set>
+    <set name="posicion"><srai>FINDITEM <get name="eliminar"/> IN <get name="nombres"/></srai></set>
+</think>
+<condition name="posicion">
+    <li value="0">No existe el contacto <star/>.</li>
+    <li>
+        <think><set name="topic">eliminar_contacto</set></think>
+        Seguro(si/NO).
+    </li>
+</condition>
+</template>
+</category>
+
+<category>
+<pattern>^ Borr+ ^ contacto *</pattern>
+<template><srai>ELIMINA EL CONTACTO <star index="3"/></srai></template>
+</category>
+
+<category>
+<pattern>^ elimin+ ^ contacto *</pattern>
+<template><srai>ELIMINA EL CONTACTO <star index="3"/></srai></template>
+</category>
+
+<topic name="borrar_contacto_aux">
+
+	<category>
+	<pattern>*</pattern>
+	<template><srai>ELIMINA EL CONTACTO <star/></srai></template>
+	</category>
+
+</topic>
+
+<category>
+<pattern>^ [borrar+ elimin+] ^ contacto</pattern>
+<template>Dime el apellido por favor.<think><set name="topic">borrar_contacto_aux</set></think></template>
+</category>
+
+<topic name="modificar_contacto">
+
+	<category>
+	<pattern>Cancelar</pattern>
+	<template>Cancelado el cambio.
+	<think><set name="topic">" "</set></think>
+	</template>
+	</category>
+
+	<category>
+	<pattern>Cancela</pattern>
+	<template><srai>CANCELAR</srai></template>
+	</category>
+
+	<category>
+	<pattern>^ DIRECCION</pattern>
+	<template>Dime la nueva direccion por favor</template>
+	</category>
+
+	<category>
+	<pattern>^ TELEFONO</pattern>
+	<template>Dime el nuevo telefono por favor</template>
+	</category>
+
+	<category>
+	<pattern>*</pattern>
+	<that>Dime la nueva direccion por favor</that>
+	<template>Direccion actualizada correctamente.
+	<think><set name="topic">" "</set></think>
+	<modifymap>
+		<name>direccion</name>
+		<key><get name="modificar"/></key>
+		<value><star/></value>
+	</modifymap>
+	</template>
+	</category>
+
+	<category>
+	<pattern>*</pattern>
+	<that>Dime el nuevo telefono por favor</that>
+	<template>Telefono actualizado correctamente.
+	<think><set name="topic">" "</set></think>
+	<modifymap>
+		<name>telefono</name>
+		<key><get name="modificar"/></key>
+		<value><star/></value>
+	</modifymap>
+	</template>
+	</category>
+
+</topic>
+
+<topic name="modificar_contacto_aux">
+
+	<category>
+	<pattern>*</pattern>
+	<template><srai>MODIFICAR EL CONTACTO <star/></srai></template>
+	</category>
+
+</topic>
+
+<category>
+<pattern>^ modificar ^ contacto</pattern>
+<template>Dime el apellido por favor.<think><set name="topic">modificar_contacto_aux</set></think></template>
+</category>
+
+<category>
+<pattern>Modificar el contacto *</pattern>
+<template>
+<think>
+    <set name="modificar"><srai>PONERBARRABAJA <star/></srai></set>
+    <set name="nombres"><readkeys>nombre</readkeys></set>
+    <set name="posicion"><srai>FINDITEM <get name="modificar"/> IN <get name="nombres"/></srai></set>
+</think>
+<condition name="posicion">
+    <li value="0">No existe el contacto <star/>.</li>
+    <li>
+        <think><set name="topic">modificar_contacto</set></think>
+		Que desea modificar del contacto <star/>, la direccion o el telefono?
+    </li>
+</condition>
+</template>
+</category>
+
+<category>
+<pattern>Cambia el contacto *</pattern>
+<template><srai>MODIFICAR EL CONTACTO <star/></srai></template>
+</category>
+
+<category>
+<pattern>Cambiar el contacto *</pattern>
+<template><srai>MODIFICAR EL CONTACTO <star/></srai></template>
+</category>
+
+<category>
+<pattern>Modifica el contacto *</pattern>
+<template><srai>MODIFICAR EL CONTACTO <star/></srai></template>
+</category>
+
+<category>
+<pattern>DIME LA DIRECCION DEL CONTACTO *</pattern>
+<template>
+<think>
+    <set name="encontrar"><srai>PONERBARRABAJA <star/></srai></set>
+    <set name="nombres"><readkeys>nombre</readkeys></set>
+    <set name="posicion"><srai>FINDITEM <get name="encontrar"/> IN <get name="nombres"/></srai></set>
+</think>
+<condition name="posicion">
+    <li value="0">No existe el contacto <star/>.</li>
+    <li>
+		La direccion del contacto <srai>QUITARESPACIOS <get name="encontrar"/></srai> es <srai>QUITARESPACIOS <map name="direccion"><get name="encontrar"/></map></srai>
+    </li>
+</condition>
+</template>
+</category>
+
+<category>
+<pattern>* direccion del contacto *</pattern>
+<template><srai>DIME LA DIRECCION DEL CONTACTO <star index="2"/></srai></template>
+</category>
+
+<category>
+<pattern>* direccion de *</pattern>
+<template><srai>DIME LA DIRECCION DEL CONTACTO <star index="2"/></srai></template>
+</category>
+
+<category>
+<pattern>DIME EL TELEFONO DEL CONTACTO *</pattern>
+<template>
+<think>
+    <set name="encontrar"><srai>PONERBARRABAJA <star/></srai></set>
+    <set name="nombres"><readkeys>nombre</readkeys></set>
+    <set name="posicion"><srai>FINDITEM <get name="encontrar"/> IN <get name="nombres"/></srai></set>
+</think>
+<condition name="posicion">
+    <li value="0">No existe el contacto <star/>.</li>
+    <li>
+		El telefono del contacto <srai>QUITARESPACIOS <get name="encontrar"/></srai> es <srai>QUITARESPACIOS <map name="telefono"><get name="encontrar"/></map></srai>
+    </li>
+</condition>
+</template>
+</category>
+
+<category>
+<pattern>* telefono del contacto *</pattern>
+<template><srai>DIME EL TELEFONO DEL CONTACTO <star index="2"/></srai></template>
+</category>
+
+<category>
+<pattern>* telefono de *</pattern>
+<template><srai>DIME EL TELEFONO DEL CONTACTO <star index="2"/></srai></template>
+</category>
+
+<category>
+<pattern>Buscar el contacto *</pattern>
+<template>
+<think>
+    <set name="encontrar"><srai>PONERBARRABAJA <star/></srai></set>
+    <set name="nombres"><readkeys>nombre</readkeys></set>
+    <set name="posicion"><srai>FINDITEM <get name="encontrar"/> IN <get name="nombres"/></srai></set>
+</think>
+<condition name="posicion">
+    <li value="0">No existe el contacto <star/>.</li>
+    <li>
+		La informacion del contacto <get name="encontrar"/> es:
+		Nombre: <srai>QUITARESPACIOS <map name="nombre"><get name="encontrar"/></map></srai>
+		Direccion: <srai>QUITARESPACIOS <map name="direccion"><get name="encontrar"/></map></srai>
+		Telefono: <srai>QUITARESPACIOS <map name="telefono"><get name="encontrar"/></map></srai>
+    </li>
+</condition>
+</template>
+</category>
+
+<category>
+<pattern>Busca el contacto *</pattern>
+<template><srai>BUSCAR EL CONTACTO <star/></srai></template>
+</category>
+
+<category>
+<pattern>Encuentra el contacto *</pattern>
+<template><srai>BUSCAR EL CONTACTO <star/></srai></template>
+</category>
+
+<category>
+<pattern>Encontrar el contacto *</pattern>
+<template><srai>BUSCAR EL CONTACTO <star/></srai></template>
+</category>
+
+<category>
+<pattern>Muestra ^ informacion ^ contacto *</pattern>
+<template><srai>BUSCAR EL CONTACTO <star index="3"/></srai></template>
+</category>
+
+<!---->
+
+<!-- AGENDA DE EVENTOS -->
+
+<topic name="crear_evento_fecha">
+
+<category>
+<pattern>*</pattern>
+<template>
+	<think>
+    <set name="fecha"><srai>VALIDAFECHA <star/></srai></set>
+	</think>
+	Fecha agregada correctamente, dime el nombre del evento.
+	<think><set name="topic">crear_evento_nombre</set></think>
+</template>
+</category>
+
+<category>
+<pattern>* de * de+ *</pattern>
+<template>
+	<think>
+		<set name="fecha"><srai>FECHA <star/> <star index="2"/> <star index="3"/></srai></set>
+	</think>
+	Fecha agregada correctamente, dime el nombre del evento.
+	<think><set name="topic">crear_evento_nombre</set></think>
+</template>
+</category>
+
+</topic>
+
+<topic name="crear_evento_nombre">
+
+<category>
+<pattern>*</pattern>
+<template>
+	<think>
+    <set name="nombre_evento"><srai>PONERBARRABAJA <star/></srai></set>
+	</think>
+	Nombre agregado correctamente, dime la hora del evento.
+	<think><set name="topic">crear_evento_hora</set></think>
+</template>
+</category>
+
+</topic>
+
+<topic name="crear_evento_hora">
+
+<category>
+<pattern>COMPROBAR</pattern>
+<template>
+	<think>
+		<set var="fechas"><readkeys>evento</readkeys></set>
+		<set var="posicion"><srai>FINDITEM <get name="fecha"/> IN <get var="fechas"/></srai></set>
+	</think>
+	<condition var="posicion">
+		<li value="0">
+			1
+		</li>
+		<li>
+			<think>
+				<set name="existe_hora"><srai>SELECTITEM <map name="horas_int_30"><get name="hora"/></map> IN <map name="evento"><get name="fecha"/></map></srai></set>
+				<set name="hora_pos"><map name="horas_int_30"><get name="hora"/></map></set>
+			</think>
+			<condition name="existe_hora">
+				<li value="$">999</li>
+				<li value="null"><get name="hora_pos"/></li>
+				<li>999</li>
+			</condition>
+		</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>*</pattern>
+<template>
+	<think>
+		<set name="hora"><srai>QUITARESPACIOS <srai>QUITARDOSPUNTOS <star/></srai></srai></set>
+		<set name="horas"><readkeys>horas_int_30</readkeys></set>
+		<set name="posicion"><srai>FINDITEM <get name="hora"/> IN <get name="horas"/></srai></set>
+		<set var="contador"><srai>COMPROBAR</srai></set>
+		<set var="salida"> </set>
+		<set var="comprobar"></set>
+	</think>
+	<condition var="contador">
+		<li value="999">
+			No es posible, tiene un evento para ese día y esa fecha.
+			<set name="topic"> </set>
+		</li>
+		<li value="49">
+			<think>
+				<set name="topic">asociar_contacto_evento</set>
+				<addtomap>
+					<name>evento</name>
+					<key><get name="fecha"/></key>
+					<value><get var="salida"/></value>
+				</addtomap>
+			</think>
+			Desea asociar un contacto al evento?
+		</li>
+		<li><value><get name="hora_pos"/></value>
+			<modifymap>
+				<name>evento</name>
+				<key><get name="fecha"/></key>
+				<value><srai>CHANGEITEM <map name="horas_int_30"><get name="hora"/></map> BY <get name="nombre_evento"/> IN <map name="evento"><get name="fecha"/></map></srai></value>
+			</modifymap>
+			<think><set name="topic">asociar_contacto_evento</set></think>
+			Desea asociar un contacto al evento?
+		</li>
+		<li><value><map name="horas_int_30"><get name="hora"/></map></value>
+			<think>
+				<set var="contador">
+					<map name="successor"><get var="contador"/></map>
+				</set>
+				<set var="salida"><get var="salida"/> <get name="nombre_evento"/></set>
+			</think>
+			<loop/>
+		</li>
+		<li>
+			<think>
+				<set name="hora_pos">998</set>
+				<set var="contador">
+					<map name="successor"><get var="contador"/></map>
+				</set>
+				<set var="salida"><get var="salida"/> null</set>
+			</think>
+			<loop/>
+		</li>
+	</condition>
+</template>
+</category>
+
+</topic>
+
+<topic name="asociar_contacto_evento">
+
+<category>
+<pattern>*</pattern>
+<template>
+<think>
+    <set name="encontrar"><srai>PONERBARRABAJA <star/></srai></set>
+    <set name="nombres"><readkeys>nombre</readkeys></set>
+    <set name="posicion"><srai>FINDITEM <get name="encontrar"/> IN <get name="nombres"/></srai></set>
+</think>
+<condition name="posicion">
+    <li value="0">No existe el contacto <star/>, intentelo de nuevo.</li>
+    <li>
+		<think>
+			<set var="existe"><map name="evper"><get name="fecha"/>_<get name="hora"/></map></set>
+		</think>
+		<condition var="existe">
+			<li value="unknown">
+				<addtomap>
+					<name>evper</name>
+					<key><get name="fecha"/>_<get name="hora"/></key>
+					<value><get name="encontrar"/></value>
+				</addtomap>
+				Contacto agregado correctamente, desea agregar un nuevo contacto?
+			</li>
+			<li>
+				<think>
+					<set var="ya_agregado"><srai>FINDITEM <get name="encontrar"/> IN <get var="existe"/></srai></set>
+				</think>
+				<condition var="ya_agregado">
+					<li value="0">
+						<modifymap>
+							<name>evper</name>
+							<key><get name="fecha"/>_<get name="hora"/></key>
+							<value><get var="existe"/> <get name="encontrar"/></value>
+						</modifymap>
+						Contacto agregado correctamente, desea agregar un nuevo contacto?
+					</li>
+					<li>
+						Contacto ya agregado, intentelo de nuevo.					
+					</li>
+				</condition>
+			</li>
+		</condition>
+    </li>
+</condition>
+</template>
+</category>
+
+<category>
+<pattern>[SI CLARO]</pattern>
+<template>
+De acuerdo, dime los apellidos del contacto.
+</template>
+</category>
+
+<category>
+<pattern>[NO CANCEL+]</pattern>
+<template>
+De acuerdo, realizado.
+<set name="topic"> </set>
+</template>
+</category>
+
+</topic>
+
+<category>
+<pattern>Quiero aniadir un ^ evento ^</pattern>
+<template>Dime la fecha del evento por favor.<think><set name="topic">crear_evento_fecha</set></think></template>
+</category>
+
+<category>
+<pattern>^ nuevo evento ^</pattern>
+<template><srai>QUIERO ANIADIR UN NUEVO EVENTO</srai></template>
+</category>
+
+<category>
+<pattern>DIME QUE EVENTOS TENGO EL DIA *</pattern>
+<template>
+	<think>
+		<set var="fecha"><srai>VALIDAFECHA <star/></srai></set>
+		<set var="fechas_evento"><readkeys>evento</readkeys></set>
+		<set var="posicion"><srai>FINDITEM <get var="fecha"/> IN <get var="fechas_evento"/></srai></set>
+	</think>
+	<condition var="posicion">
+		<li value="0">
+			unknown
+		</li>
+		<li>
+			<think>
+				<set var="contador">0</set>
+			</think>
+			<condition var="contador">
+				<li value="49">
+					<get var="devolver"/>
+				</li>
+				<li>
+					<think>
+						<set var="contador">
+							<map name="successor"><get var="contador"/></map>
+						</set>
+						<set var="nombre_evento"><srai>SELECTITEM <get var="contador"/> IN <map name="evento"><get var="fecha"/></map></srai></set>
+					</think>
+					<condition var="nombre_evento">
+						<li value="null"></li>
+						<li value="NIL"></li>
+						<li>
+							<condition var="devolver">
+								<li value="unknown">
+									<think>
+										<set var="devolver"><srai>QUITARESPACIOS <get var="nombre_evento"/></srai> --> <srai>QUITARESPACIOS <srai>INSERTITEM : POS 2 IN <srai>DELETREA <map name="horas_int_30_inv"><get var="contador"/></map></srai></srai></srai></set>
+									</think>
+								</li>
+								<li>
+									<think>
+										<set var="devolver"><get var="devolver"/> <srai>QUITARESPACIOS <get var="nombre_evento"/></srai> --> <srai>QUITARESPACIOS <srai>INSERTITEM : POS 2 IN <srai>DELETREA <map name="horas_int_30_inv"><get var="contador"/></map></srai></srai></srai></set>
+									</think>
+								</li>
+							</condition>
+						</li>
+					</condition>
+					<loop/>
+				</li>
+			</condition>
+		</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>^ evento+ tengo el dia *</pattern>
+<template>
+	<think>
+		<set var="correcto"><srai>DIME QUE EVENTOS TENGO EL DIA <star index="2"/></srai></set>
+	</think>
+	<condition var="correcto">
+		<li value="unknown">
+			No tienes ningun evento ese dia. 
+		</li>
+		<li>
+			<get var="correcto"/>
+		</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>^ evento+ tengo el dia * de * de+ *</pattern>
+<template>
+	<think>
+		<set var="fecha"><srai>FECHA <star index="2"/> <star index="3"/> <star index="4"/></srai></set>
+	</think>
+	<srai>QUE EVENTOS TENGO EL DIA <get var="fecha"/></srai>
+</template>
+</category>
+
+<topic name="mod_evento_nombre">
+
+<category>
+<pattern>*</pattern>
+<template>
+	<modifymap>
+		<name>evento</name>
+		<key><get name="fecha"/></key>
+		<value><srai>CHANGEITEM <get name="posicion"/> BY <srai>PONERBARRABAJA <star/></srai> IN <map name="evento"><get name="fecha"/></map></srai></value>
+	</modifymap>
+	Titulo modificado correctamente.
+	<think><set name="topic"> </set></think>
+</template>
+</category>
+
+</topic>
+
+<topic name="mod_evento_hora">
+
+<category>
+<pattern>*</pattern>
+<template>
+	<think>
+		<set var="hora_existe"><srai>QUITARESPACIOS <srai>QUITARDOSPUNTOS <star/></srai></srai></set>
+		<set var="horas"><readkeys>horas_int_30</readkeys></set>
+		<set var="pos"><srai>FINDITEM <get var="hora_existe"/> IN <get var="horas"/></srai></set>
+	</think>
+	<condition var="pos">
+		<li value="0">
+			La hora no es valida, intentelo de nuevo.
+		</li>
+		<li>
+			<think>
+				<set var="meter"><srai>CHANGEITEM <get name="posicion"/> BY null IN <map name="evento"><get name="fecha"/></map></srai></set>
+				<set var="meter"><srai>CHANGEITEM <map name="horas_int_30"><get var="hora_existe"/></map> BY <get name="event"/> IN <get var="meter"/></srai></set>
+			</think>
+			<modifymap>
+				<name>evento</name>
+				<key><get name="fecha"/></key>
+				<value><get var="meter"/></value>
+			</modifymap>
+			<addtomap>
+				<name>evper</name>
+				<key><get name="fecha"/>_<get var="hora_existe"/></key>
+				<value><map name="evper"><get name="fecha"/>_<get name="hora"/></map></value>
+			</addtomap>
+			<removefrommap>
+				<name>evper</name>
+				<key><get name="fecha"/>_<get name="hora"/></key>
+			</removefrommap>
+			Hora del evento cambiada correctamente.
+			<think><set name="topic"> </set></think>
+		</li>
+	</condition>
+</template>
+</category>
+
+</topic>
+
+<topic name="asociar_contacto_evento_borrar">
+
+<category>
+<pattern>*</pattern>
+<template>
+<think>
+    <set var="encontrar"><srai>PONERBARRABAJA <star/></srai></set>
+    <set var="nombres"><map name="evper"><get name="fecha"/>_<get name="hora"/></map></set>
+	<set var="cuantos"><srai>COUNT <get var="nombres"/></srai></set>
+	<set var="posicion"><srai>FINDITEM <get var="encontrar"/> IN <get var="nombres"/></srai></set>
+</think>
+<condition var="cuantos">
+	<li value="0">No hay contactos para este evento.</li>
+	<li value="1">
+		<condition var="posicion">
+			<li value="0">No existe el contacto <star/>, intentelo de nuevo.</li>
+			<li>
+				<removefrommap>
+					<name>evper</name>
+					<key><get name="fecha"/>_<get name="hora"/></key>
+				</removefrommap>
+				Contacto eliminado correctamente.
+				<think><set name="topic"> </set></think>
+			</li>
+		</condition>	
+	</li>
+	<li>
+		<condition var="posicion">
+			<li value="0">No existe el contacto <star/>, intentelo de nuevo.</li>
+			<li>
+				<modifymap>
+					<name>evper</name>
+					<key><get name="fecha"/>_<get name="hora"/></key>
+					<value><srai>REMOVEITEM <get var="posicion"/> IN <map name="evper"><get name="fecha"/>_<get name="hora"/></map></srai></value>
+				</modifymap>
+				Contacto eliminado correctamente.
+				<think><set name="topic"> </set></think>
+			</li>
+		</condition>	
+	</li>
+</condition>
+</template>
+</category>
+
+<category>
+<pattern>CANCEL+</pattern>
+<template>
+	Cancelado el cambio.
+	<think><set name="topic"> </set></think>
+</template>
+</category>
+
+</topic>
+
+<topic name="asociar_contacto_evento_previo">
+
+<category>
+<pattern>MUESTRA</pattern>
+<template>
+<srai>QUITARESPACIOS <srai>PONERCOMAS <map name="evper"><get name="fecha"/>_<get name="hora"/></map></srai></srai>
+</template>
+</category>
+
+<category>
+<pattern>^ AN+ ^</pattern>
+<template>
+Indicame el nuevo contacto a agregar, estos son los actuales.
+	<srai>MUESTRA</srai>
+<think><set name="topic">asociar_contacto_evento</set></think>
+</template>
+</category>
+
+<category>
+<pattern>BOR+ ^</pattern>
+<template>
+Indicame el contacto a borrar, estos son los actuales.
+	<srai>MUESTRA</srai>
+<think><set name="topic">asociar_contacto_evento_borrar</set></think>
+</template>
+</category>
+
+<category>
+<pattern>CANCEL+</pattern>
+<template>
+	Cancelado el cambio.
+	<think><set name="topic"> </set></think>
+</template>
+</category>
+
+</topic>
+
+<topic name="mod_evento_elegido">
+
+<category>
+<pattern>^ [NOMBRE TITULO] ^</pattern>
+<template>
+Indicame el nuevo nombre, por favor.
+<think><set name="topic">mod_evento_nombre</set></think>
+</template>
+</category>
+
+<category>
+<pattern>^ HORA</pattern>
+<template>
+	Dime la nueva hora.
+	<think><set name="topic">mod_evento_hora</set></think>
+</template>
+</category>
+
+<category>
+<pattern>^ CONTACTO+ ^</pattern>
+<template>
+	<think>
+		<set var="hay"><srai>SELECTITEM 1 IN <map name="evper"><get name="fecha"/>_<get name="hora"/></map></srai></set>
+	</think>
+	<condition var="hay">
+		<li value="unknown">
+			No hay contactos para ese evento. Solo puedes agregar contactos, que contacto quieres agregar?.
+			<think><set name="topic">asociar_contacto_evento</set></think>
+		</li>
+		<li>
+			Que desea aniadir o borra un contacto.
+			<think><set name="topic">asociar_contacto_evento_previo</set></think>
+		</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>CANCEL+</pattern>
+<template>
+	Cancelado el cambio.
+	<think><set name="topic"> </set></think>
+</template>
+</category>
+
+</topic>
+
+<topic name="mod_evento_hora_elegir">
+
+<category>
+<pattern>*</pattern>
+<template>
+	<think>
+		<set name="hora"><srai>QUITARESPACIOS <srai>QUITARDOSPUNTOS <star/></srai></srai></set>
+		<set name="horas"><readkeys>horas_int_30</readkeys></set>
+		<set var="posicion_existe"><srai>FINDITEM <get name="hora"/> IN <get name="horas"/></srai></set>
+	</think>
+	<condition var="posicion_existe">
+		<li value="0">
+			Hora incorrecta, elige una hora correcta o cancela.
+		</li>
+		<li>
+			<think>
+				<set name="posicion"><map name="horas_int_30"><get name="hora"/></map></set>
+				<set name="event"><srai>SELECTITEM <get name="posicion"/> IN <map name="evento"><get name="fecha"/></map></srai></set>
+			</think>
+			<condition name="event">
+				<li value="$">
+					No es un hora valida, reintenta o cancela.
+				</li>
+				<li value="null">
+					No tienes un evento a esa hora, puede crear uno, elija otra hora o cancele.
+				</li>
+				<li>
+					Que desea modificar, la hora, el titulo o los contactos asociados?
+					<think><set name="topic">mod_evento_elegido</set></think>
+				</li>
+			</condition>
+		</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>CANCEL+</pattern>
+<template>
+	Cancelado el cambio.
+	<think><set name="topic"> </set></think>
+</template>
+</category>
+
+</topic>
+
+<topic name="mod_evento">
+
+<category>
+<pattern>*</pattern>
+<template>
+	<think>
+		<set name="fecha"><srai>VALIDAFECHA <star/></srai></set>
+		<set name="eventoss"><srai>DIME QUE EVENTOS TENGO EL DIA <get name="fecha"/></srai></set>
+	</think>
+	<condition name="eventoss">
+		<li value="unknown">
+			No tienes eventos para el dia <star/>
+			<think><set name="topic"> </set></think>
+		</li>
+		<li>
+			Estos son los eventos que tienes para el dia <star/>, dime la hora del evento a modificar?
+			<get name="eventoss"/>
+			<think><set name="topic">mod_evento_hora_elegir</set></think>
+		</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>* de * de+ *</pattern>
+<template>
+	<think>
+		<set name="fecha"><srai>FECHA <star/> <star index="2"/> <star index="3"/></srai></set>
+	</think>
+	<srai><get name="fecha"/></srai>
+</template>
+</category>
+
+</topic>
+
+<category>
+<pattern>QUIERO MODIFICAR UN EVENTO</pattern>
+<template>
+	Cual es la fecha del evento que desea modificar?<think><set name="topic">mod_evento</set></think>
+</template>
+</category>
+
+<category>
+<pattern>^ MODIFICAR+ ^ EVENTO ^</pattern>
+<template>
+	<srai>QUIERO MODIFICAR UN EVENTO</srai>
+</template>
+</category>
+
+<topic name="confirma_borrar">
+
+<category>
+<pattern>SI</pattern>
+<template>
+<think>
+	<set name="event"><srai>SELECTITEM <get name="posicion"/> IN <map name="evento"><get name="fecha"/></map></srai></set>
+	<set name="comprobante"><map name="evper"><get name="fecha"/>_<get name="hora"/></map></set>
+</think>
+<modifymap>
+	<name>evento</name>
+	<key><get name="fecha"/></key>
+	<value><srai>CHANGEITEM <get name="posicion"/> BY null IN <map name="evento"><get name="fecha"/></map></srai></value>
+</modifymap>
+<condition name="comprobante">
+	<li value="unknown">
+		Evento eliminado correctamente.
+	</li>
+	<li>
+		Evento eliminado y sus contactos asociados.
+		<removefrommap>
+			<name>evper</name>
+			<key><get name="fecha"/>_<get name="hora"/></key>
+		</removefrommap>
+	</li>
+</condition>
+<think>
+	<set var="tengo_que_borrar"><srai>DIME QUE EVENTOS TENGO EL DIA <get name="fecha"/></srai></set>
+</think>
+<condition var="tengo_que_borrar">
+	<li value="unknown">
+		<removefrommap>
+			<name>evento</name>
+			<key><get name="fecha"/></key>
+		</removefrommap>
+	</li>
+</condition>
+<think><set name="topic"> </set></think>
+</template>
+</category>
+
+<category>
+<pattern>[* NO]</pattern>
+<template>
+Cancelado.
+<think><set name="topic"> </set></think>
+</template>
+</category>
+
+</topic>
+
+<topic name="borrar_evento_hora_elegir">
+
+<category>
+<pattern>*</pattern>
+<template>
+	<think>
+		<set name="hora"><srai>QUITARESPACIOS <srai>QUITARDOSPUNTOS <star/></srai></srai></set>
+		<set name="horas"><readkeys>horas_int_30</readkeys></set>
+		<set var="posicion_existe"><srai>FINDITEM <get name="hora"/> IN <get name="horas"/></srai></set>
+	</think>
+	<condition var="posicion_existe">
+		<li value="0">
+			Hora incorrecta, elige una hora correcta o cancela.
+		</li>
+		<li>
+			<think>
+				<set name="posicion"><map name="horas_int_30"><get name="hora"/></map></set>
+				<set name="event"><srai>SELECTITEM <get name="posicion"/> IN <map name="evento"><get name="fecha"/></map></srai></set>
+			</think>
+			<condition name="event">
+				<li value="$">
+					No es un hora valida, reintenta o cancela.
+				</li>
+				<li value="null">
+					No tienes un evento a esa hora, puede crear uno, elija otra hora o cancele.
+				</li>
+				<li>
+					Estas seguro(si/NO)?
+					<think><set name="topic">confirma_borrar</set></think>
+				</li>
+			</condition>
+		</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>CANCEL+</pattern>
+<template>
+	Cancelado el cambio.
+	<think><set name="topic"> </set></think>
+</template>
+</category>
+
+</topic>
+
+<topic name="borrar_evento_fecha">
+
+<category>
+<pattern>*</pattern>
+<template>
+	<think>
+		<set name="fecha"><srai>VALIDAFECHA <star/></srai></set>
+		<set name="eventoss"><srai>DIME QUE EVENTOS TENGO EL DIA <get name="fecha"/></srai></set>
+	</think>
+	<condition name="eventoss">
+		<li value="unknown">
+			No tienes eventos para el dia <star/>
+			<think><set name="topic"> </set></think>
+		</li>
+		<li>
+			Estos son los eventos que tienes para el dia <star/>, dime la hora del evento a borrar?
+			<get name="eventoss"/>
+			<think><set name="topic">borrar_evento_hora_elegir</set></think>
+		</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>* de * de+ *</pattern>
+<template>
+	<think>
+		<set name="fecha"><srai>FECHA <star/> <star index="2"/> <star index="3"/></srai></set>
+	</think>
+	<srai><get name="fecha"/></srai>
+</template>
+</category>
+
+</topic>
+
+<category>
+<pattern>QUIERO BORRAR UN EVENTO</pattern>
+<template>
+	Cual es la fecha del evento que desea borrar?<think><set name="topic">borrar_evento_fecha</set></think>
+</template>
+</category>
+
+<category>
+<pattern>^ [BORRAR+ ELIMIN+] ^ EVENTO ^</pattern>
+<template>
+	<srai>QUIERO BORRAR UN EVENTO</srai>
+</template>
+</category>
+
+<category>
+<pattern>CUANTOS EVENTOS TENGO EL DIA *</pattern>
+<template>
+	<think>
+		<set var="n_eventos"><srai>COUNT <map name="evento"><star/></map></srai></set>
+		<set var="com"><map name="evento"><get name="fecha"/></map></set>
+	</think>
+	<condition var="com">
+	<li value="unknown">
+		No tienes eventos el dia <srai>VALIDAFECHA <star/></srai>
+	</li>
+	<li>
+		<condition var="n_eventos">
+			<li value="1">
+				Tienes <get var="n_eventos"/> evento.
+			</li>
+			<li>
+				Tienes <get var="n_eventos"/> eventos.
+			</li>
+		</condition>
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+<pattern>CUANTOS EVENTOS ^ DIA * DE * DE+ *</pattern>
+<template>
+	<think>
+		<set name="fecha"><srai>FECHA <star index="2"/> <star index="3"/> <star index="4"/></srai></set>
+		<set var="n_eventos"><srai>COUNT <map name="evento"><get name="fecha"/></map></srai></set>
+		<set var="com"><map name="evento"><get name="fecha"/></map></set>
+	</think>
+	<condition var="com">
+	<li value="unknown">
+		No tienes eventos el dia <star index="2"/> de <star index="3"/> del <star index="4"/>.
+	</li>
+	<li>
+		<condition var="n_eventos">
+			<li value="1">
+				Tienes <get var="n_eventos"/> evento.
+			</li>
+			<li>
+				Tienes <get var="n_eventos"/> eventos.
+			</li>
+		</condition>
+	</li>
+	</condition>
+</template>
+</category>
+
+<category>
+    <pattern>CUANDO TENGO UN EVENTO CON *</pattern>
+    <template>
+		<think>
+			<set var="claves"><readkeys>evper</readkeys></set>
+			<set var="contador">0</set>
+			<set var="cuenta"><srai>COUNT <get var="claves"/></srai></set>
+		</think>
+		<condition var="cuenta">
+			<li value="0">
+				No tienes eventos con el contacto <star/>
+			</li>
+			<li>
+				<think>
+					<set var="contador">
+						<map name="successor"><get var="contador"/></map>
+					</set>
+					<set var="seleccionado"><srai>SELECTITEM <get var="contador"/> IN <get var="claves"/></srai></set>
+					<set var="cuenta"><srai>COUNT <get var="seleccionado"/></srai></set>
+				</think>
+				<condition var="cuenta">
+					<li value="0"></li>
+					<li>
+						<think>
+							<set var="este"><map name="evper"><get var="seleccionado"/></map></set>
+							<set var="buscando"><srai>FINDITEM <star/> IN <get var="este"/></srai></set>
+						</think>
+						<condition var="buscando">
+							<li value="0"></li>
+							<li value="$"></li>
+							<li>
+								El proximo evento con <star/> es el dia <srai>SELECTITEM 1 IN <srai>QUITARESPACIOS <get var="seleccionado"/></srai></srai> a las <srai>QUITARESPACIOS <srai>INSERTITEM : POS 2 IN <srai>DELETREA <srai>SELECTITEM 2 IN  <srai>QUITARESPACIOS <get var="seleccionado"/></srai></srai></srai></srai></srai>
+								<think>
+									<set var="para">1</set>
+								</think>
+							</li>
+						</condition>
+					</li>
+				</condition>
+			</li>
+			<loop/>
+		</condition>
+		<condition var="para">
+			<li value="unknown">
+				No tienes eventos con el contacto <star/>.
+			</li>
+		</condition>
+    </template>
+</category>
+
+<!---->
+
+</aiml>

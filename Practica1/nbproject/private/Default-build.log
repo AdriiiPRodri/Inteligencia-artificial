@@ -1,0 +1,168 @@
+Scanning dependencies of target comportamientosLib
+[  1%] Building CXX object CMakeFiles/comportamientosLib.dir/src/comportamientos/comportamiento.cpp.o
+[  2%] Building CXX object CMakeFiles/comportamientosLib.dir/src/comportamientos/puerta.cpp.o
+[  3%] Building CXX object CMakeFiles/comportamientosLib.dir/src/comportamientos/objeto.cpp.o
+[  4%] Building CXX object CMakeFiles/comportamientosLib.dir/Comportamientos_Jugador/jugador.cpp.o
+[  5%] Building CXX object CMakeFiles/comportamientosLib.dir/Comportamientos_Jugador/perro.cpp.o
+[  6%] Building CXX object CMakeFiles/comportamientosLib.dir/Comportamientos_Jugador/aldeano.cpp.o
+[  7%] Linking CXX static library lib/libcomportamientosLib.a
+[  7%] Built target comportamientosLib
+Scanning dependencies of target obj3DLib
+[  8%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/luz.cpp.o
+[ 10%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/toro3d.cc.o
+[ 11%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/file_ply_stl.cc.o
+[ 12%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/dodecaedro3d.cc.o
+[ 13%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/cono3dwire.cc.o
+[ 14%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/tetraedro3d.cc.o
+[ 15%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/objeto3d.cc.o
+[ 16%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/octaedro3d.cc.o
+[ 17%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/cubo3d.cc.o
+[ 18%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/esfera3d.cc.o
+[ 20%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/cono3d.cc.o
+[ 21%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/icosaedro3d.cc.o
+[ 22%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/objrevolucion3d.cc.o
+[ 23%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/jpeg_reader/jpg_imagen.cpp.o
+[ 24%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/jpeg_reader/jpg_memsrc.cpp.o
+[ 25%] Building CXX object CMakeFiles/obj3DLib.dir/src/obj3dlib/jpeg_reader/jpg_readwrite.cpp.o
+[ 26%] Linking CXX static library lib/libobj3DLib.a
+[ 26%] Built target obj3DLib
+Scanning dependencies of target GLUILib
+[ 27%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_edittext.cpp.o
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_edittext.cpp: In member function ‘int GLUI_EditText::find_word_break(int, int)’:
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_edittext.cpp:936:20: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   char   *breaks = " :-.,";
+                    ^
+[ 28%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_spinner.cpp.o
+[ 30%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_string.cpp.o
+[ 31%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_bitmaps.cpp.o
+[ 32%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_list.cpp.o
+[ 33%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_statictext.cpp.o
+[ 34%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_filebrowser.cpp.o
+[ 35%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_button.cpp.o
+[ 36%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_rotation.cpp.o
+[ 37%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_scrollbar.cpp.o
+[ 38%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_node.cpp.o
+[ 40%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/viewmodel.cpp.o
+[ 41%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_separator.cpp.o
+[ 42%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_rollout.cpp.o
+[ 43%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_panel.cpp.o
+[ 44%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_listbox.cpp.o
+[ 45%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_mouse_iaction.cpp.o
+[ 46%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_checkbox.cpp.o
+[ 47%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_treepanel.cpp.o
+[ 48%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_column.cpp.o
+[ 50%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/quaternion.cpp.o
+[ 51%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_translation.cpp.o
+[ 52%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui.cpp.o
+[ 53%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_commandline.cpp.o
+[ 54%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_add_controls.cpp.o
+[ 55%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_bitmap_img_data.cpp.o
+[ 56%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_tree.cpp.o
+[ 57%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_control.cpp.o
+[ 58%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/algebra3.cpp.o
+[ 60%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/arcball.cpp.o
+[ 61%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_radio.cpp.o
+[ 62%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_window.cpp.o
+[ 63%] Building CXX object CMakeFiles/GLUILib.dir/src/glui/glui_textbox.cpp.o
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp: In member function ‘virtual int GLUI_TextBox::mouse_down_handler(int, int)’:
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:100:49: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   if ( debug )    dump( stdout, "-> MOUSE DOWN" );
+                                                 ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:118:47: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   if ( debug )    dump( stdout, "<- MOUSE UP" );
+                                               ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp: In member function ‘virtual int GLUI_TextBox::mouse_held_down_handler(int, int, bool)’:
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:141:48: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   if ( debug )    dump( stdout, "-> HELD DOWN" );
+                                                ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:160:34: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+     dump( stdout, "<- HELD DOWN" );
+                                  ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp: In member function ‘virtual int GLUI_TextBox::key_handler(unsigned char, int)’:
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:176:36: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+     dump( stdout, "-> KEY HANDLER" );
+                                    ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:314:36: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+     dump( stdout, "<- KEY HANDLER" );
+                                    ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp: In member function ‘virtual void GLUI_TextBox::activate(int)’:
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:340:33: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+     dump( stdout, "-> ACTIVATE" );
+                                 ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:352:33: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+     dump( stdout, "<- ACTIVATE" );
+                                 ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp: In member function ‘virtual void GLUI_TextBox::deactivate()’:
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:366:36: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+     dump( stdout, "-> DISACTIVATE" );
+                                    ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:388:36: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+     dump( stdout, "<- DISACTIVATE" );
+                                    ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp: In member function ‘int GLUI_TextBox::update_substring_bounds()’:
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:513:48: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   if ( debug )    dump( stdout, "-> UPDATE SS" );
+                                                ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:551:48: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   if ( debug )    dump( stdout, "<- UPDATE SS" );
+                                                ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp: In member function ‘void GLUI_TextBox::draw_text(int, int)’:
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:575:48: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   if ( debug )    dump( stdout, "-> DRAW_TEXT" );
+                                                ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:659:48: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   if ( debug )    dump( stdout, "<- DRAW_TEXT" );
+                                                ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp: In member function ‘void GLUI_TextBox::draw_insertion_pt()’:
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:779:50: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   if ( debug )    dump( stdout, "-> DRAW_INS_PT" );
+                                                  ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:853:50: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   if ( debug )    dump( stdout, "-> DRAW_INS_PT" );
+                                                  ^
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp: In member function ‘void GLUI_TextBox::dump(FILE*, char*)’:
+/home/adri/Desktop/ETSIIT_16-17/Inteligencia_Artificial/Practica1/src/glui/glui_textbox.cpp:1076:21: warning: format ‘%d’ expects argument of type ‘int’, but argument 11 has type ‘std::__cxx11::basic_string<char>::size_type {aka long unsigned int}’ [-Wformat=]
+        text.length());
+                     ^
+[ 64%] Linking CXX static library lib/libGLUILib.a
+[ 64%] Built target GLUILib
+Scanning dependencies of target motorLib
+[ 65%] Building CXX object CMakeFiles/motorLib.dir/src/motorlib/motor_juego.cpp.o
+[ 66%] Building CXX object CMakeFiles/motorLib.dir/src/motorlib/monitor.cpp.o
+[ 67%] Building CXX object CMakeFiles/motorLib.dir/src/motorlib/mapa.cpp.o
+[ 68%] Building CXX object CMakeFiles/motorLib.dir/src/motorlib/entidad.cpp.o
+[ 70%] Building CXX object CMakeFiles/motorLib.dir/src/motorlib/motor_grafico.cpp.o
+[ 71%] Linking CXX static library lib/libmotorLib.a
+[ 71%] Built target motorLib
+Scanning dependencies of target modelosBelkanLib
+[ 72%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/leo/cabeza.cpp.o
+[ 73%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/leo/torso.cpp.o
+[ 74%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/leo/pierna.cpp.o
+[ 75%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/leo/leo.cpp.o
+[ 76%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/leo/cintura.cpp.o
+[ 77%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/leo/brazo.cpp.o
+[ 78%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/item/item.cpp.o
+[ 80%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/aldeano.cpp.o
+[ 81%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/cabeza.cpp.o
+[ 82%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/torso.cpp.o
+[ 83%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/pierna.cpp.o
+[ 84%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/cintura.cpp.o
+[ 85%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/aldeano/brazo.cpp.o
+[ 86%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/perro/cabeza.cpp.o
+[ 87%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/perro/perro.cpp.o
+[ 88%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/perro/lomo.cpp.o
+[ 90%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/jugador/jugador3d.cpp.o
+[ 91%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/jugador/quesito.cpp.o
+[ 92%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/puerta/puerta.cpp.o
+[ 93%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/arbol/arbol.cpp.o
+[ 94%] Building CXX object CMakeFiles/modelosBelkanLib.dir/src/modelos/retrato.cpp.o
+[ 95%] Linking CXX static library lib/libmodelosBelkanLib.a
+[ 95%] Built target modelosBelkanLib
+Scanning dependencies of target BelkanSG
+[ 96%] Building CXX object CMakeFiles/BelkanSG.dir/bin_src/juegoSG.cc.o
+[ 97%] Linking CXX executable BelkanSG
+[ 97%] Built target BelkanSG
+Scanning dependencies of target Belkan
+[ 98%] Building CXX object CMakeFiles/Belkan.dir/bin_src/juego.cc.o
+[100%] Linking CXX executable Belkan
+[100%] Built target Belkan

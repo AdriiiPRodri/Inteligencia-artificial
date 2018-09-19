@@ -1,0 +1,21 @@
+Ejercicio 2.- Avispa Sphex
+
+Sensores:
+	- Sostiene
+	- En_Umbral
+	- Correcto
+	- Grillo
+
+Acciones básicas:
+	- va_umbral
+	- va_dentro(del umbral del nido al interior)
+	- va_fuera(del interior del nido al umbral)
+	- arrastra(umbral al exterior, encapsulado el movimiento)
+	- encuentra(busca al grillo y cuando lo encuentra lo atrapa)
+	- deja(suelta el grillo)
+
+Memoria necesaria(variables de estado):
+	- Rcorrecto = false, en el momento que percibe Correcto(sensor) lo pone a true
+
+- Si En_Umbral y Grillo, entonces va dentro
+- ... Se debe de poner todas las reglas y una vez hecho ver como se deben de lanzar 
